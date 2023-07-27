@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import Axios from "axios";
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.css";
+import Dropdown from "react-bootstrap/Dropdown";
+import { useState } from "react";
 
 function App() {
+ 
+const [text,setText]=useState("")
+const dsss=(a)=>{
+  setText(a)
+}
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div>
+     
+        <h4>React Dropdown Component</h4>
+        <Dropdown>
+          <Dropdown.Toggle variant="success">Open Menu</Dropdown.Toggle>
+          <Dropdown.Menu>
+            <Dropdown.Item onClick={()=>{dsss("Home")}}>Home Page</Dropdown.Item>
+            <Dropdown.Item  onClick={()=>{dsss("Setting")}}>Settings</Dropdown.Item>
+            <Dropdown.Item  onClick={()=>{dsss("Logout")}}>Logout</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+        <h1 style={{ position: 'relative' }}>{text}</h1>
+      </div>
+ 
   );
 }
 
